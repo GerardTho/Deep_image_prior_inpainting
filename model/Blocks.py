@@ -29,7 +29,7 @@ class UpSamplerBlock(nn.Module):
   Upsampling block composed of 2 convolutional layers with associated batch normalization and activation function
   The effective upsampling is done after the 2 convolutional layers
   """
-  def __init__(self, n_in, n_out, kernel_size, pad='zero', bias=True, scale_factor=2, mode='nearest'):
+  def __init__(self, n_in, n_out, kernel_size, pad='zero', bias=True, scale_factor=2, mode='nearest', upsample=True):
     super(UpSamplerBlock, self).__init__()
     if pad == "zero":
       to_pad = int((kernel_size[0] - 1) / 2)
@@ -45,12 +45,14 @@ class UpSamplerBlock(nn.Module):
     self.act2 = nn.LeakyReLU()
 
     self.upsample = nn.Upsample(scale_factor=scale_factor, mode=mode)
+    self.upsamplebool = upsample
 
   def forward(self, x):
     x = self.bn0(x)
     x = self.act1(self.bn1(self.conv1(x)))
     x = self.act2(self.bn2(self.conv2(x)))
-    x = self.upsample(x)
+    if self.upsamplebool :
+      x = self.upsample(x)
     return x
 
 class SkipBlock(nn.Module):

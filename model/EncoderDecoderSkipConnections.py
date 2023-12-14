@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch
 from model.Blocks import DownSamplerBlock, UpSamplerBlock, SkipBlock
 
-class EncoderDecoderSkipConcat(nn.Module):
+class EncoderDecoderSkipConnections(nn.Module):
   """
   Encoder Decoder model starting with Downsampling blocks and finishing with Upsampling blocks
   """
@@ -19,7 +19,7 @@ class EncoderDecoderSkipConcat(nn.Module):
                bias=True,
                scale_factor=2,
                mode_upscale='nearest'):
-    super(EncoderDecoderSkipConcat, self).__init__()
+    super(EncoderDecoderSkipConnections, self).__init__()
 
     if (len(n_upsampler) != len(k_upsampler)) or (len(n_downsampler) != len(k_downsampler)):
       raise ValueError("Unable to instantiate convolutional layers due to a difference of length between kernel sizes list and input sizes list")
