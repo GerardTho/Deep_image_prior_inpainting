@@ -45,14 +45,11 @@ class EncoderDecoder(nn.Module):
     x = self.downsample_block4(x)
     x = self.downsample_block5(x)
     x = self.downsample_block6(x)
-
     x = self.upsample_block1(x)
     x = self.upsample_block2(x)
     x = self.upsample_block3(x)
     x = self.upsample_block4(x)
     x = self.upsample_block5(x)
     x = self.upsample_block6(x)
-
     x = self.conv(x)
-
     return self.sigmoid(x)

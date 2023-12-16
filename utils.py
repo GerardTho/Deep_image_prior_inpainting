@@ -114,3 +114,11 @@ def plot_image_grid(images_np, nrow =8, factor=1, interpolation='lanczos'):
     plt.show()
 
     return grid
+
+def PSNR(original, compressed, max_pixel=1.0): 
+    mse = np.mean((original - compressed) ** 2) 
+    if(mse == 0):  # MSE is zero means no noise is present in the signal . 
+                  # Therefore PSNR have no importance. 
+        return 100
+    psnr = 20 * np.log10(max_pixel / np.sqrt(mse)) 
+    return psnr 
