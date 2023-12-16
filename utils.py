@@ -77,9 +77,15 @@ def np_to_pil(img_np):
 
     return Image.fromarray(ar)
 
-def generate_noise(input_depth, shape):
+def generate_noise_uniform(input_depth, shape):
   shape = [1, input_depth, shape[0], shape[1]]
   return torch.zeros(shape).uniform_()
+
+def generate_noise_mesh_grid(input_depth, shape):
+    assert input_depth == 2
+    X, Y = np.meshgrid(np.arange(0, shape[1])/float(shape[1]-1), np.arange(0, shape[0])/float(shape[0]-1))
+    meshgrid = np.concatenate([X[None,:], Y[None,:]])
+    return  torch.from_numpy(meshgrid)
 
 def get_image_grid(images_np, nrow=8):
     '''Creates a grid from a list of images by concatenating them.'''
