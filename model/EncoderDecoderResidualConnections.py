@@ -4,7 +4,7 @@ from model.Blocks import DownSamplerBlock, UpSamplerBlock, SkipBlock
 
 class EncoderDecoderResidualConnections(nn.Module):
   """
-  Encoder Decoder model starting with Downsampling blocks and finishing with Upsampling blocks
+  Encoder Decoder model starting with Downsampling blocks and finishing with Upsampling blocks and with residual connections
   """
   def __init__(self, num_input_channels,
                num_output_channels,
@@ -55,6 +55,7 @@ class EncoderDecoderResidualConnections(nn.Module):
     x = self.downsample_block6(x)
     s6 = x
     x = self.upsample_block1(x)+s6
+    # Upsample has to be done after adding to keep the size consistent
     x = self.upsample(x)
     x = self.upsample_block2(x)+s5
     x = self.upsample(x)

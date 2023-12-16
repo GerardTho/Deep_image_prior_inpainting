@@ -4,7 +4,7 @@ from model.Blocks import DownSamplerBlock, UpSamplerBlock, SkipBlock
 
 class EncoderDecoderSkipConnections(nn.Module):
   """
-  Encoder Decoder model starting with Downsampling blocks and finishing with Upsampling blocks
+  Encoder Decoder model starting with Downsampling blocks and finishing with Upsampling blocks with skip connections
   """
   def __init__(self, num_input_channels,
                num_output_channels,
