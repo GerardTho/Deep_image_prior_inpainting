@@ -51,6 +51,5 @@ class EncoderDecoder(nn.Module):
     x = self.upsample_block4(x)
     x = self.upsample_block5(x)
     x = self.upsample_block6(x)
-    features = x.clone()
     x = self.conv(x)
-    return self.sigmoid(x), features
+    return self.sigmoid(x)
