@@ -6,6 +6,14 @@ Implementation of the Deep Image Prior paper for a school project for inpainting
 
 https://github.com/DmitryUlyanov/deep-image-prior
 
+# About the code
+
+Inside the model folder, the different classes used to build the models can be found. The EdgeModelInpainting is directly taken from the EdgeConnect paper. Other models have been implemented reproducing Encoder-Decoder CNN models described in the Deep Image Prior paper. The models focusing on Residual Connections and Skip Connections make respectively use of element-wise addition and concatenation between different layers.
+
+# Reproducibility
+
+To reproduce the results, you can use the jupyter notebook associated : Deep Image Prior. Inside you will be able to chose which particular model you want and on which image. To add more images, you can add an image file in the data folder, we will also have to add a mask corresponding to that image. The mask should be a grayscale image (with only one channel), it is preferable to use jpg images.
+
 # Citation
 
 ```
