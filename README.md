@@ -18,13 +18,26 @@ To add more images, you can add an image file in the data folder, you will also 
 
 # Reproducibility
 
-To reproduce the results, you have to create the conda environment :
+To reproduce the results, clone the project,
+```
+git clone https://github.com/GerardTho/Deep_image_prior_inpainting.git
+```
+
+Create and activate the conda environment :
 
 ```
+cd Deep_image_prior_inpainting
 conda env create -f environment.yml
+conda activate DeepImagePrior
 ```
 
-You can then use the jupyter notebook associated : DeepImagePrior. It is possible to run it on collab using the first two lines.
+You can then use the jupyter notebook associated (or use VScode) :
+
+```
+conda run -n DeepImagePrior jupyter notebook DeepImagePrior.ipynb
+```
+
+It is also possible to run it on collab using the first two lines.
 
 Inside you will be able to chose which image you want to inpaint and which particular model. The available models are EncoderDecoder, EncoderDecoderSkipConnections and EncoderDecoderResidualConnections.
 
