@@ -110,4 +110,3 @@ dependencies:
       - kiwisolver==1.4.5
       - matplotlib==3.8.2
       - pillow==10.1.0
-prefix: C:\Users\wande\anaconda3\envs\DeepImagePrior
