@@ -18,13 +18,12 @@ To add more images, you can add an image file in the data folder, you will also 
 
 # Reproducibility
 
-To reproduce the results, clone the project,
+To reproduce the results, clone the project :
 ```
 git clone https://github.com/GerardTho/Deep_image_prior_inpainting.git
 ```
 
 Create and activate the conda environment :
-
 ```
 cd Deep_image_prior_inpainting
 conda env create -f environment.yml
@@ -32,7 +31,6 @@ conda activate DeepImagePrior
 ```
 
 You can then use the jupyter notebook associated (or use VScode) :
-
 ```
 conda run -n DeepImagePrior jupyter notebook DeepImagePrior.ipynb
 ```
