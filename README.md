@@ -18,7 +18,13 @@ To add more images, you can add an image file in the data folder, you will also 
 
 # Reproducibility
 
-To reproduce the results, clone the project :
+## Collab
+
+To reproduce the results on collabs, the notebook DeepImagePrior.ipynb can be run while uncommenting the first two lines.
+
+## Local
+
+To reproduce the results in locals, clone the project :
 ```
 git clone https://github.com/GerardTho/Deep_image_prior_inpainting.git
 ```
@@ -35,11 +41,9 @@ You can then use the jupyter notebook associated (or use VScode) :
 conda run -n DeepImagePrior jupyter notebook DeepImagePrior.ipynb
 ```
 
-It is also possible to run it on collab using the first two lines.
-
 Inside you will be able to chose which image you want to inpaint and which particular model. The available models are EncoderDecoder, EncoderDecoderSkipConnections and EncoderDecoderResidualConnections.
 
-The image will then be transformed into a numpy array and cropped, using functions in the utils folder (that have been taken from the official Deep Image Prior implementation). Then the model chosen will be trained using Adam, a noisy input, and a MSE loss. This loss will compare the generated image with a mask and the image chose with a mask, the goal being that the 2 images should be the same on the areas exterior to the mask.
+The image will then be transformed into a numpy array and cropped, using functions in the utils folder. Then the model chosen will be trained using Adam, a noisy input, and a MSE loss. This loss will compare the generated image with a mask and the image chose with a mask, the goal being that the 2 images should be the same on the areas exterior to the mask.
 
 In a second time, one can use the EdgeConnect GAN by just changing the images at the beginning of this section.
 
@@ -66,6 +70,8 @@ The EdgeModelInpainting is a GAN model directly taken from the EdgeConnect paper
 # Official implementation
 
 https://github.com/DmitryUlyanov/deep-image-prior
+
+The preprocessing functions for the images in utils are directly taken from it.
 
 # Citation
 
