@@ -44,6 +44,8 @@ The EncoderDecoder model makes use of the down sampling blocks in the Encoder pa
 
 The EncoderDecoderSkipConnections model has the same architecture however we do retain the data before each down sampling blocks to also send it in the skip connection blocks. These will be connected to the input of the opposite up sampling blocks, which also means we have to take care of the number of input in the up sampling blocks since we are going to concatenate the data alongside the channels. Mathematically, if $N$ is the number of blocks and $(D_i)_{i=1}^{N}, (U_i)_{i=1}^{N}, (S_i)_{i=1}^{N}$ the down sampling blocks, up sampling blocks and skip blocks. Then,
 
+$(D_i)_{i=1}^{N}, (U_i)_{i=1}^{N}, (S_i)_{i=1}^{N}$
+
 $$ \text{Number of channels inputs}(U_i) = \text{Number of channels output}(U_{i-1}) + \text{Number of channels output}(S_{N+1-i}) $$
 
 This is true for $i \in [1, N]$, if we define $U_0 = D_N$.
